@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card Details</title>
+    <style>
+        .card-details-container {
+            text-align: left;
+        }
+
+        .image-slider {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .image-slider img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            margin: 0 0px;
+        }
+
+        .arrow-button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .arrow-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-details-container">
+        <h1 id="cardHeading" class="text-center mt-5 display-3 fw-bold"></h1>
+
+        <div class="image-slider">
+            <button class="arrow-button" id="prevButton">←</button>
+            <img id="cardImage" src="" alt="">
+            <button class="arrow-button" id="nextButton">→</button>
+        </div>
+
+        <p id="cardDescription"></p>
+        <div id="additionalData" class="mt-3"></div>
+        <a href="index.html">Back to Portfolio</a>
+    </div>
+
+    <script>
+        // JavaScript to retrieve and display card details
+        const params = new URLSearchParams(window.location.search);
+        const cardHeading = document.getElementById("cardHeading");
+        const cardImage = document.getElementById("cardImage");
+        const cardDescription = document.getElementById("cardDescription");
+        const additionalData = document.getElementById("additionalData");
+        const prevButton = document.getElementById("prevButton");
+        const nextButton = document.getElementById("nextButton");
+
+        const cardData = [
+            {
+                images: ['images/img1.jpeg', 'images/img2.avif', 'images/img3.jpeg'],
+                heading: 'Suryam Pride(Vastral)',
+                description: 'Description for Suryam Pride(Vastral) goes here...',
+                additionalData: {
+                    'Project Name': 'Net Zero Energy Building for CEPT University (Exposed R.C.C.)',
+                    'Built Area': '10,000 sq. ft.',
+                    'Project Location': 'Gujarat University, Vijay Cross Road, Ahmedabad',
+                    'Structure Type': 'Basement, Ground + 2 (Exposed R.C.C. Work)',
+                    'Client Name': 'CEPT University',
+                    'Builder Name': 'Tripur Builders',
+                    'Architect Name': 'H.V. Doshi (CEPT University)',
+                    'Structural Designer': 'VMS Engineering & Design Pvt. Ltd.',
+                    'Year Built': '2014',
+                    'Project Duration': '6 months',
+                },
+            },
+            {
+                    images: ['images/img4.jpeg', 'images/img5.jpeg', 'images/img6.jpeg'],
+                heading: 'AMC (Vastral)',
+                description: 'Description for AMC (Vastral) goes here...',
+                additionalData: {
+                    nameOfProject: 'Another Project Name',
+                    builtUpArea: 'Some other area',
+                    location: 'Another Location',
+                    typeOfStructure: 'Different Type of Structure',
+                    nameOfClient: 'Another Client Name',
+                    nameOfBuilder: 'Another Builder Name',
+                    nameOfArchitect: 'Another Architect Name',
+                    nameOfStructuralDesigner: 'Another Designer Name',
+                    built: 'Year',
+                    durationOfProject: 'Duration',
+                },
+            },
+            // Add other card data with multiple images and descriptions
+        ];
+
+        let currentImageIndex = 0;
+
+        function updateCardData(card) {
+            const images = card.images;
+            cardImage.src = images[currentImageIndex];
+            cardDescription.textContent = card.description;
+
+            let additionalDataHTML = '';
+            for (const key in card.additionalData) {
+                additionalDataHTML += `<p><strong>${key}:</strong> ${card.additionalData[key]}</p>`;
+            }
+            additionalData.innerHTML = additionalDataHTML;
+        }
+
+        if (params.has("heading") && params.has("image")) {
+            const heading = params.get("heading");
+            cardHeading.textContent = heading;
+
+            const card = cardData.find((item) => item.heading === heading);
+
+            if (card) {
+                updateCardData(card);
+
+                prevButton.addEventListener("click", () => {
+                    currentImageIndex = (currentImageIndex - 1 + card.images.length) % card.images.length;
+                    cardImage.src = card.images[currentImageIndex];
+                });
+
+                nextButton.addEventListener("click", () => {
+                    currentImageIndex = (currentImageIndex + 1) % card.images.length;
+                    cardImage.src = card.images[currentImageIndex];
+                });
+            } else {
+                cardDescription.textContent = 'No description available for this card.';
+            }
+        }
+    </script>
+</body>
+
+</html>

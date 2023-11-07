@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container-fluid card-slider-container-exp">
+    <div>
+        <h1 class="text-center mt-5 display-3 fw-bold">Recent <span style="color: #474af0;">Portfolio</span></h1>
+        <hr class="mx-auto mb-5 w-25">
+    </div>
+    <div class="card-slider-exp">
+        <!-- Cards will be dynamically added here -->
+    </div>
+    <div class="controls">
+        <button id="prevButton" disabled>Previous</button>
+        <button id="nextButton">Next</button>
+    </div>
+</div>
+
+<script>
+    const cardData = [
+      {
+        image: 'images/img1.jpeg',
+        heading: 'Net Zero Energy Building for CEPT University (Exposed R.C.C.)',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'AMC (Vastral)',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 3',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 4',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 5',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 6',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 7',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 8',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 9',
+      },
+      {
+        image: '/images/img1.jpeg',
+        heading: 'Card 10',
+      },
+    ];
+
+    const container = document.querySelector(".card-slider-exp");
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+
+    let startIndex = 0;
+
+    function renderCards() {
+      const cards = cardData.slice(startIndex, startIndex + 4);
+      container.innerHTML = '';
+
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const cardElement = document.createElement("div");
+        cardElement.className = "card-exp";
+
+        const img = document.createElement("img");
+        img.src = card.image;
+        img.alt = card.heading;
+
+        const heading = document.createElement("h3");
+        heading.textContent = card.heading;
+
+        // const detailsButton = document.createElement("button");
+        // detailsButton.textContent = "See Details";
+
+        // // Add a click event listener to open the details page
+        // detailsButton.addEventListener("click", () => {
+        //  // Navigate to the details page (replace 'details.html' with your actual page)
+        //   window.location.href = 'details.html';
+        // });
+        const detailsButton = document.createElement("button");
+        detailsButton.textContent = "See Details";
+        detailsButton.addEventListener("click", () => {
+          showCardDetails(card);
+        });
+        function showCardDetails(card) {
+      // Navigate to the card-details.html page with card information
+      window.location.href = `details.html?heading=${encodeURIComponent(card.heading)}&image=${encodeURIComponent(card.image)}`;
+    }
+        cardElement.appendChild(img);
+        cardElement.appendChild(heading);
+        cardElement.appendChild(detailsButton);
+        container.appendChild(cardElement);
+      }
+
+      prevButton.disabled = startIndex === 0;
+      nextButton.disabled = startIndex >= cardData.length - 4;
+    }
+
+    function handleNext() {
+      if (startIndex < cardData.length - 4) {
+        startIndex++;
+        renderCards();
+      }
+    }
+
+    function handlePrev() {
+      if (startIndex > 0) {
+        startIndex--;
+        renderCards();
+      }
+    }
+
+    nextButton.addEventListener("click", handleNext);
+    prevButton.addEventListener("click", handlePrev);
+
+    // Initial rendering
+    renderCards();
+  </script>
+
+</body>
+</html>

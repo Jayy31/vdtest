@@ -1,0 +1,130 @@
+/* Reset the default margin and padding for the body */
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: #12172b; */
+}
+
+/* Apply styling to the entire container */
+.team-container-fluid {
+    background-color: #12172b;
+    font-family: sans-serif;
+    height: 550px;
+    color: white !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the main heading */
+.team-heading {
+    padding-top: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 60px !important;
+    color: white !important;
+}
+
+/* Apply styling to the span within the heading */
+.team-heading span {
+    font-style: italic;
+    font-size: 30px;
+}
+
+/* Style the profiles section */
+.team-profiles {
+    
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 120px;
+}
+
+/* Style each individual profile */
+.team-profile {
+    flex-basis: 260px;
+}
+
+/* Style the profile image */
+.team-profile .team-profile-img {
+    height: 260px;
+    width: 260px;
+    border-radius: 50%;
+    filter: grayscale(100);
+    cursor: pointer;
+    transition: 400ms;
+}
+
+/* Apply grayscale effect on hover */
+.team-profile:hover .team-profile-img {
+    filter: grayscale(0);
+}
+
+/* Style the user name */
+.team-user-name {
+    margin-top: 30px;
+    font-size: 25px;
+    margin-left: 30px;
+    color: white;
+}
+
+/* Style the position/title */
+.team-profile h5 {
+    font-size: 18px;
+    font-weight: 100;
+    margin-left: 30px;
+    letter-spacing: 3px;
+    color: #ccc;
+}
+
+/* Style additional information (paragraph) */
+.team-profile p {
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* Add spacing to the span in the heading */
+.team-heading span {
+    margin-right: 20px;
+}
+
+/* Media query for screens with a maximum width of 1150px */
+@media only screen and (max-width: 1150px) {
+    .team-profiles {
+        flex-direction: column;
+    }
+
+    .team-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-profile p {
+        text-align: center;
+        margin: 20px 60px 80px 60px;
+        font-size: 20px;
+    }
+}
+
+/* Media query for screens with a maximum width of 900px */
+@media only screen and (max-width: 900px) {
+    .team-heading {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        margin-right: 20px;
+    }
+
+    .team-heading span {
+        font-size: 15px;
+    }
+
+    .team-profiles {
+        margin: 20px 0;
+    }
+
+    .team-profile p {
+        margin: 20px 10px 80px 10px;
+    }
+}

@@ -1,0 +1,31 @@
+.story-two-columns-container{
+    margin-top: 50px;
+}
+
+.story-row{
+    margin-bottom: 60px;
+}
+.story-about-img{
+    border-radius: 2px;
+    margin-left: 10px;
+}
+.story-para{ 
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 1.75;
+    margin-top: 2em;
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+#story-desc{
+    color: red;
+  }
+
+.story-head{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    margin-left: 20px;
+    
+}
+  

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="col-lg-4">
+    <div class="contact-info card card-body rounded-0 shadow">
+        <h4 class="text-theme">Get In Touch</h4>
+        <form action="https://www.onestopproperty.in/welcome/submitContact" id="contact-us" method="post" accept-charset="utf-8" novalidate="novalidate">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="user_name">Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded-0 " id="user_name" name="user_name" placeholder="Name" value=""> 
+                    </div>
+                </div>
+                <div class="col-12 d-none">
+                    <div class="form-group">
+                        <label for="web_name">Web Name</label>
+                        <input type="text" class="form-control rounded-0" id="webname" name="webname" placeholder="Name" value=""> 
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="email">Email<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded-0" id="email" name="email" placeholder="Email" value=""> 
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="mobile">Mobile<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded-0" id="mobile" onkeyup="onlyNumber(this)" minlength="10" maxlength="10" name="mobile" placeholder="Mobile" value=""> 
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="message">Comments</label>
+                        <textarea class="form-control rounded-0" name="message" id="message" rows="3" placeholder="Comments"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-bottom: 20px">
+                                                                    <div style="display: none;" class="g-recaptcha" data-sitekey="6Lf86bQZAAAAAAAowFrVR4IerJe-OqwqyU_0MlVZ" data-badge="inline" data-size="invisible" data-callback="setResponse"><div class="grecaptcha-badge" data-style="inline" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s ease 0s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-e3v5nd426v44" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lf86bQZAAAAAAAowFrVR4IerJe-OqwqyU_0MlVZ&amp;co=aHR0cHM6Ly93d3cub25lc3RvcHByb3BlcnR5LmluOjQ0Mw..&amp;hl=en&amp;v=3sU2vDRVDmUU2E0Ro4VadvPr&amp;size=invisible&amp;badge=inline&amp;cb=hq0kenofb9xg"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><br>
+                       <input type="hidden" id="captcha-response" name="captcha-response" value="03AFcWeA6sMXr_k5o59qD0185KBokbB34T44z96TtzirwUIkUfvqtLjjpUhTxr0pMDlSvdCh97GMWVm76ROa-cW4zgtI7rLNKyZwSu3BO84dmJUvZOG3REuyAQu9Ckir-tnjtKz7POLIX40tKDx9HUka_8orqsFFn-XR8SzbuXYexxuNHnLBKb_uHbpujuFPD4zEXpOZ-ENgDjDFShKESKJSltr0d-shM1cnez6IQ4ZyEc8CrItcuMWVXNdQF9SHjlMWJd8yQtX069EIoot1qLzY7lfIyngySMemAzeE3BpEUEG_rFqjiUAJl8blgP2MP_i7xXXs77r46GgWevpXiGtT8txvMmSTLAEO9fNVPoWjQ87wszi8PwAbS6pFXEwXTov-JKO7GqxhZo636AQhfNs5Ou7u9asnYmZPDp839u89WAZHzWEAcTvU0BTBjvqo24qCG0D2jDs9J4PuVcNKiOthrEdKouyHUVweuwF_z4xFJMuLeZe3wO1yqITkiGeAj2hg1cguAq9_a6kLquDRuAD7QwjN1EXw3abu9L0_BHR3tA0BIBI39w2fLLyn3mB0F9LwBXBP_1RkfoiTjjVfwr75LLDOWowcDpc_vYFiUP5MH2F0q0s2rIRp6T-COXOdJQuxfgc0ydVvEP">
+                </div>
+                <div class="col-12">
+                    <div class="">
+                        <button type="button" onclick="submitForm();" title="Submit" class="btn bg-theme text-white btn-submit submit-contact">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>                            </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

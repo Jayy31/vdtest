@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Navbar.css">
+    <link rel="stylesheet" href="Story.css">
+    <link rel="stylesheet" href="Recent.css">
+    <link rel="stylesheet" href="Mail.css">
+    <link rel="stylesheet" href="Address.css">
+    <link rel="stylesheet" href="Services.css">
+</head>
+
+<body>
+    <!------------------------ Navbar Starts Here -------------------->
+   
+    <nav class="navbar">
+        <input type="checkbox" id="check">
+        <label class="logo">DesignX</label>
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <label for="check" class="checkbtn">&#9776;</label>
+    </nav>
+    <!------------------------ Navbar Ends Here -------------------->
+
+    <!------------------------ Mission Story Starts Here ---------------->
+
+    <div class="container-fluid story-two-columns-container">
+        <div class="row story-row">
+            <div class="col-md-6 story-col">
+                <h1 class="story-head">Our Mission</h1>
+                <p class="story-para">Dedication to providing quality construction, technical and management services to our customers. We
+                    will strive to implement a long-term relationship with our clients. Based on safety, quality, timely
+                    service, and anticipation of their needs. To help fulfill this mission, we will treat all employees
+                    fairly and involve them in the quality improvement process to ensure responsiveness and
+                    cost-effective work execution.</p>
+            </div>
+            <div class="col-md-6 story-col">
+                <img src="images/img1.jpeg" class="story-about-img img-fluid" alt="About Us Image">
+            </div>
+        </div>
+        <div class="row story-row">
+            <div class="col-md-6 story-col">
+                <img src="images/img1.jpeg" class="story-about-img img-fluid" alt="About Us Image">
+            </div>
+            <div class="col-md-6 story-col">
+                <h1 class="story-head">Our Story</h1>
+                <p class="story-para"><span id="story-desc">VISHWAANATH INFRACON,</span> established in 2012, is a
+                    construction organization known for its dedication to quality, adherence to project timelines, and a
+                    highly motivated workforce. The company's success is attributed to its unique experience of
+                    operating effectively in various conditions. The core strengths of VISHWAANATH INFRACON include a highly
+                    dedicated and committed workforce, as well as visionary management focused on achieving growth.</p>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------ Mission Story Ends Here ---------------->
+
+    <!--------------------- Recent Portfolio Start --------------------->
+
+    <div class="container-fluid card-slider-container-exp">
+        <div>
+            <h1 class="text-center mt-5 display-3 fw-bold">Recent <span style="color: #474af0;">Portfolio</span></h1>
+            <hr class="mx-auto mb-5 w-25">
+        </div>
+        <div class="card-slider-exp">
+            <!-- Cards will be dynamically added here -->
+        </div>
+        <div class="recent-controls">
+            <button id="prevButton" class="recent-button" disabled>Previous</button>
+            <button id="nextButton" class="recent-button">Next</button>
+        </div>
+    </div>
+
+    
+    <script>
+        const cardData = [
+          {
+            image: 'images/img1.jpeg',
+            heading: 'Net Zero Energy Building for CEPT University (Exposed R.C.C.)',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'AMC (Vastral)',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 3',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 4',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 5',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 6',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 7',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 8',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 9',
+          },
+          {
+            image: '/images/img1.jpeg',
+            heading: 'Card 10',
+          },
+        ];
+    
+        const container = document.querySelector(".card-slider-exp");
+        const prevButton = document.getElementById("prevButton");
+        const nextButton = document.getElementById("nextButton");
+    
+        let startIndex = 0;
+    
+        function renderCards() {
+          const cards = cardData.slice(startIndex, startIndex + 4);
+          container.innerHTML = '';
+    
+          for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+            const cardElement = document.createElement("div");
+            cardElement.className = "card-exp";
+    
+            const img = document.createElement("img");
+            img.src = card.image;
+            img.alt = card.heading;
+    
+            const heading = document.createElement("h3");
+            heading.textContent = card.heading;
+    
+            // const detailsButton = document.createElement("button");
+            // detailsButton.textContent = "See Details";
+    
+            // // Add a click event listener to open the details page
+            // detailsButton.addEventListener("click", () => {
+            //  // Navigate to the details page (replace 'details.html' with your actual page)
+            //   window.location.href = 'details.html';
+            // });
+            const detailsButton = document.createElement("button");
+            detailsButton.textContent = "See Details";
+            detailsButton.addEventListener("click", () => {
+              showCardDetails(card);
+            });
+            function showCardDetails(card) {
+          // Navigate to the card-details.html page with card information
+          window.location.href = `details.html?heading=${encodeURIComponent(card.heading)}&image=${encodeURIComponent(card.image)}`;
+        }
+            cardElement.appendChild(img);
+            cardElement.appendChild(heading);
+            cardElement.appendChild(detailsButton);
+            container.appendChild(cardElement);
+          }
+    
+          prevButton.disabled = startIndex === 0;
+          nextButton.disabled = startIndex >= cardData.length - 4;
+        }
+    
+        function handleNext() {
+          if (startIndex < cardData.length - 4) {
+            startIndex++;
+            renderCards();
+          }
+        }
+    
+        function handlePrev() {
+          if (startIndex > 0) {
+            startIndex--;
+            renderCards();
+          }
+        }
+    
+        nextButton.addEventListener("click", handleNext);
+        prevButton.addEventListener("click", handlePrev);
+    
+        // Initial rendering
+        renderCards();
+      </script>
+
+    <!--------------------- Recent Portfolio End --------------------->
+
+    <!---------------------- Our Services Starts -------------------->
+
+    <div class="container-fluid service-container-fluid">
+        <h1 class="text-center mt-5 display-3 fw-bold">Our <span class="service-theme-text">Services</span></h1>
+        <hr class="mx-auto mb-5 w-25">
+        <div class="row mb-5">
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card service-card shadow">
+                    <img src="images/hall-decor.jpg" alt="" class="card-img-top service-card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Interior Contractor</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eligendi soluta est veniam sequi
+                            nemo, quas delectus eveniet ducimus rem animi. Natus non earum deleniti aliquam
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card service-card shadow">
+                    <img src="images/general.jpg" alt="" class="card-img-top service-card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Hall Decoration</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eligendi soluta est veniam sequi
+                            nemo, quas delectus eveniet ducimus rem animi. Natus non earum deleniti aliquam
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card service-card shadow">
+                    <img src="images/img1.jpeg" alt="" class="card-img-top service-card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">General Contractor</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eligendi soluta est veniam sequi
+                            nemo, quas delectus eveniet ducimus rem animi. Natus non earum deleniti aliquam
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+            <div class="col-12 col-sm-6 col-md-3 m-auto">
+                <!-- card starts here -->
+                <div class="card service-card shadow">
+                    <img src="images/interior.jpg" alt="" class="card-img-top service-card-img-top">
+                    <div class="card-body">
+                        <h3 class="text-center">Event Contractor</h3>
+                        <hr class="mx-auto w-75">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eligendi soluta est veniam sequi
+                            nemo, quas delectus eveniet ducimus rem animi. Natus non earum deleniti aliquam
+                        </p>
+                    </div>
+                </div>
+                <!-- card ends here -->
+            </div>
+            <!-- col ends here -->
+        </div>
+    </div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+
+    <!---------------------- Our Services Ends -------------------->
+
+    <!---------------------- Mail Starts Here  ----------------------->
+
+    <div class="container-fluid mail-cards">
+        <h1 class="text-center mt-5 display-3 fw-bold">Reach <span style="color: #474af0;">Us </span></h1>
+          <hr class="mx-auto mb-5 w-25">
+        <div class="row mail-row">
+            
+            <div class="col-lg-4 col-md-6 col-sm-12 mail-col">
+                <div class="card mail-card">
+                    <h2 class="mail-head2">Address</h2>
+                    <p class="mail-para">
+                        UL-33, Samudra Complex,
+                        <br />
+                        Nr. Girish Colddrinks Cross Roads,
+                        <br />
+                        C. G. Road, Navrangpura, <br />
+                        Ahmedabad-380 009. Gujarat, INDIA.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mail-col">
+                <div class="card mail-card">
+                    <h2 class="mail-head2">Call Us</h2>
+                    <h4 class="mail-head4">Reach us on our office number</h4>
+                    <p class="mail-para">9586899555</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mail-col">
+                <div class="card mail-card">
+                    <h2 class="mail-head2">Mail Us</h2>
+                    <h4 class="mail-head4">Write to us at</h4>
+                    <p class="mail-para">abc@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------- Mail Starts End  ----------------------->
+
+    <!---------------------- Address Starts Here -------------------->
+
+    <div class="container-fluid address-two-columns-container">
+        <div class="row address-row">
+            <div class="col-md-7 col-lg-7 address-seventy-percent">
+                <div class="iframe-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.746922701277!2d72.55650151496796!3d23.03306268494773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85f446391617%3A0x2e54ea9bb846b338!2sOne%20Stop%20Property%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1584009584267!5m2!1sen!2sin" width="100%" height="500" frameborder="0" style="border: 0;" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-5 address-thirty-percent">
+                <h1 class="address-head">Get In Touch</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="address-label">Name:</label>
+                        <input type="text" name="name" placeholder="Name" class="form-control address-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="address-label">Email:</label>
+                        <input type="email" name="email" placeholder="Email" class="form-control address-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="address-label">Mobile:</label>
+                        <input type="text" name="mobile" placeholder="Mobile" class="form-control address-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="address-label">Comment:</label>
+                        <textarea name="comment" placeholder="Comments" class="form-control address-textarea"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn address-btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!---------------------- Address Starts End -------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!------------------------ Bootstrap file ------------------------->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!------------------------ Bootstrap file End ------------------------->
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+.mail-cards {
+    margin-top: 50px;
+    margin-right: 50px;
+    border: 10px solid whitesmoke;
+}
+
+.mail-card {
+    text-align: center;
+    position: relative;
+    width: 330px;
+    height: 250px;
+    margin: 10px;
+    background-color: white;
+    background-clip: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.125) !important;
+    border-radius: 0.25rem;
+    line-height: 1.5;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+    transition: .30s ease-in-out;
+}
+
+.mail-head2 {
+    margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 30px;
+    font-size: 30px;
+    color: #213c8c !important;
+}
+
+.mail-head4 {
+    font-size: 20px;
+    color: #495057;
+}
+
+.mail-para {
+    color: #495057;
+}
+
+
+.mail-card:hover{
+    width: 335px !important;
+    height: 255px !important;
+    cursor: pointer;
+    transition: .30s ease-in-out;
+}
+
+@media screen and (max-width: 1200px) {
+    .mail-card {
+        width: 300px !important;
+        height: 250px !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .mail-card {
+        width: 250px !important;
+        height: 250px !important;
+    }
+}
